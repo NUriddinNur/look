@@ -62,13 +62,14 @@ foodBtn.addEventListener('click', (event) => {
   // userni malumotlari olinadi (username, phone ) validatsadan o'tkaziladi va databazaga yozib qoyiladi
 addUser.addEventListener('submit', (event) => {
     event.preventDefault();
+
     activUserId = +generatId()
-    activUserName = userNameInput.value
-    let phone = telephoneInput.value
+    activUserName = userNameInput.value.trim()
+    let phone = telephoneInput.value.trim()
 
     const pattern  = "<(\"[^\"]*\"|'[^']*'|[^'\">])*>";
 
-    if (activUserName.length > 30) {
+    if (!(activUserName.length < 30 && activUserName.length)) {
         alert("Invalid use name")
         userNameInput.value = ''
         return
